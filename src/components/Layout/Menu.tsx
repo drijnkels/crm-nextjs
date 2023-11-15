@@ -15,7 +15,7 @@ export default function Menu(){
     <div className="bg-zinc-50 h-screen w-[240px] flex flex-col border-r border-zinc-100 text-zinc-500 font-semibold text-[14px]">
       <div className="px-2 h-[56px] flex items-center justify-center rounded-md border-b border-zinc-200">Tribe Beheer</div>
       <div className="p-2 flex flex-col">
-        {menuItems.map((item, index) => <MenuItem key={index} Icon={item.icon} url={item.url} text={item.text} />)}
+        { menuItems.map((item, index) => <MenuItem key={index} Icon={item.icon} url={item.url} text={item.text} />) }
       </div>
     </div>
   )
