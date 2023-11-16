@@ -1,6 +1,12 @@
 import Layout from "@/components/Layout/Layout";
 import Table from "@/components/Elements/Table/Table";
 
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Communities',
+}
+
 export default function Communities() {
   const communities = {
     title: 'Communities',
