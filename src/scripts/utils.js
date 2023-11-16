@@ -7,7 +7,7 @@ import { DateTime } from "luxon";
  * @param {string} format 
  * @returns 
  */
-export const converDateString = (dateString, time = false, format = 'dd/MM/yyyy') => {
+export const convertDateString = (dateString, time = false, format = 'dd/MM/yyyy') => {
   if(!dateString){
     return '-';
   }
@@ -20,7 +20,7 @@ export const converDateString = (dateString, time = false, format = 'dd/MM/yyyy'
 
   if (today == dbDate) { return `Today @ ${date.toFormat('hh:mm')}`}
 
-  if (time) return date.toFormat(time + ' — ' + format);
+  if (time) return date.toFormat(date.toFormat('hh:mm') + ' - ' + format);
 
   return date.toFormat(format);
 }
