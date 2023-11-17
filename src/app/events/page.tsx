@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function Events() {
   return (
-    <Layout page_name="Events">
+    <Layout page_name="Events" current_page="events">
     </Layout>
   )
 }
