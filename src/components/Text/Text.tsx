@@ -1,15 +1,18 @@
+type TextVariant = 'normal' | 'heading1' | 'heading2' | 'heading3';
+
 type TextProps = {
   children: React.ReactNode,
-  variant?: 'normal' | 'heading1' | 'heading2' | 'heading3'
+  variant?: TextVariant
 }
 
+const variants: { [key in TextVariant] : string} = {
+  normal: 'whitespace-pre-line',
+  heading1: 'font-bold text-3xl whitespace-pre-line',
+  heading2: 'font-bold text-slate-600 text-2xl whitespace-pre-line',
+  heading3: 'font-bold text-slate-600 text-lg whitespace-pre-line'
+};
+
 export default function Text ({ children, variant = 'normal' }: TextProps) {
-  const variants: { [key in 'normal' | 'heading1' | 'heading2' | 'heading3'] : string} = {
-    normal: 'whitespace-pre-line',
-    heading1: 'font-semibold text-3xl whitespace-pre-line',
-    heading2: 'font-semibold text-2xl whitespace-pre-line',
-    heading3: 'font-medium text-lg whitespace-pre-line'
-  };
   return (
     <div className={variants[variant]}>{children}</div>
   )
