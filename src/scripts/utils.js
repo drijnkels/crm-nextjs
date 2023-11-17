@@ -24,3 +24,24 @@ export const convertDateString = (dateString, time = false, format = 'dd/MM/yyyy
 
   return date.toFormat(format);
 }
+
+export const setAddress = ( entity ) => {
+  let address = [];
+  if (entity.street) {
+    address.push(entity.street);
+  }
+  if (entity.city) {
+    address.push(entity.city);
+  }
+  if (entity.state) {
+    if (entity.postal) {
+      address.push(entity.state + ' ' + entity.postal)
+    }else{
+      address.push(entity.state);
+    }
+  }
+  if (!entity.state && entity.postal) {
+    address.push(entity.postal);
+  }
+  return address.join(', ');
+}
