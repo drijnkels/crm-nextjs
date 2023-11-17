@@ -10,7 +10,7 @@ export default function TableRow({ headers, row }: RowProps){
     <div className="flex divide-x divide-zinc-50 items-center">
       {
         headers.map( (header, index) => {
-          let rowElement = <div key={index} className={header.size + ' p-2'}>{row[header.field]}</div>;
+          let rowElement = <div key={index} className={header.size + ' p-2'}>{row[header.field] || '-'}</div>;
           if (header.field == 'url' && typeof row['url'] === 'string') {
             rowElement = <Link href={row['url']} key={index} className={header.size + ' p-2 text-indigo-400 font-medium hover:bg-zinc-50'}>View</Link>;
           }
