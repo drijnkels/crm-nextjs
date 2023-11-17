@@ -17,7 +17,7 @@ export default function Communities() {
   const headers = ['name', 'topics', 'organisations', 'users', 'url'];
 
   return (
-    <Layout page_name="Communities" current_page="communities">
+    <Layout page_name="Communities" current_page="communities" action={{label: 'Create', url: `/communities/new`}}>
       <CommunitiesTable title="Communities" headers={headers} rows={communities} loading_message="Loading communities" />
     </Layout>
   )

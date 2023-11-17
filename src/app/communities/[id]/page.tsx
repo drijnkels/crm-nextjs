@@ -70,7 +70,7 @@ export default function Community({ params }: { params: { id: string }}) {
   ];
 
   return (
-    <Layout page_name={'Communities / ' + community.name} current_page='communities'>
+    <Layout page_name={'Communities / ' + community.name} current_page='communities' action={{label: 'Edit', url: `/communities/${community.eid}/edit`}}>
       <div>
         <Text variant="heading1">Manage: {community.name}</Text>
         <span className='italic'>Created on {convertDateString(community.created_on)}</span>
