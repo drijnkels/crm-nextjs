@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { useForm, SubmitHandler } from 'react-hook-form';
+import useFlashStore from "@/stores/useFlashStore";
 
 import Text from "@/components/Text/Text";
 import Section from '@/components/Layout/Section';
@@ -14,6 +15,7 @@ import Button from '@/components/Form/Button';
 type FormValues = {
   eid: string,
   submit_url: string,
+  feedback: {pos: string, neg?: string}
   name: string;
   description: string;
   joining_requires_approval: boolean;
@@ -22,13 +24,15 @@ type FormValues = {
   public_community: boolean;
 };
 
-export default function ManageCommunity ({ eid, submit_url, name, description, joining_requires_approval, allow_invites, topics_require_approval, public_community }: FormValues){
+export default function ManageCommunity ({ eid, submit_url, feedback, name, description, joining_requires_approval, allow_invites, topics_require_approval, public_community }: FormValues){
   const router = useRouter()
   const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
+  const addMessage = useFlashStore(state => state.addMessage);
 
   const onSubmit: SubmitHandler<FormValues> = data => {
     console.log(data);
     // Handle data submission here and state management
+    addMessage({label: data.name + feedback.pos, state: 'positive'})
     router.push(submit_url);
   };
 

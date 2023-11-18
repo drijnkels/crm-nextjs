@@ -34,7 +34,8 @@ export default function Community({ params }: { params: { id: string }}) {
       
       <ManageCommunity 
         eid={community.eid}
-        submit_url={`/communities/${community.eid}?`}
+        submit_url={`/communities/${community.eid}`}
+        feedback={{pos: " community was updated", neg: 'Could not update the community'}}
         name={community.name} 
         description={community.description} 
         joining_requires_approval={community.settings.joining_requires_approval}
