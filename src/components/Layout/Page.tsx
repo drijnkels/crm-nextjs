@@ -1,4 +1,5 @@
 import PageAction from "../Elements/PageAction";
+import FlashMessages from "../Elements/FlashMessages/FlashMessages";
 
 type PageProps = {
   children: React.ReactNode,
@@ -12,6 +13,7 @@ export default function Page({ children, action }: PageProps) {
         (action) ? <PageAction label={action.label} url={action.url} /> : ''
       }
       {children}
+      <FlashMessages />
     </div>
   )
 }
