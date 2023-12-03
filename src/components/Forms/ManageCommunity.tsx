@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import useFlashStore from "@/stores/useFlashStore";
+import { FlashMessage } from '@/types/FlashMessageTypes';
 
 import Text from "@/components/Text/Text";
 import Section from '@/components/Layout/Section';
@@ -31,8 +32,11 @@ export default function ManageCommunity ({ eid, submit_url, feedback, name, desc
 
   const onSubmit: SubmitHandler<FormValues> = data => {
     console.log(data);
+
     // Handle data submission here and state management
-    addMessage({label: data.name + feedback.pos, state: 'positive'})
+    const zustandMessage:FlashMessage = {label: data.name + feedback.pos, state: 'positive'};
+    addMessage(zustandMessage)
+
     router.push(submit_url);
   };
 
