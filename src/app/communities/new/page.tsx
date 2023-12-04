@@ -31,6 +31,7 @@ export default function Community() {
       <ManageCommunity 
         eid={community.eid}
         submit_url='/communities'
+        feedback={{pos: " community was created", neg: 'Could not create the community'}}
         name={community.name} 
         description={community.description} 
         joining_requires_approval={community.settings.joining_requires_approval}
