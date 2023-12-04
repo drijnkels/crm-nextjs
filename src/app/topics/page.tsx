@@ -19,7 +19,7 @@ export default function Topics() {
       {title: 'AI-Powered Customer Care: Transforming Customer Experiences', organisation: "IntelliServe Innovations", community: "BusinessLink Pro", views: 50, collaborations: 22, status: 'Live', created_on: convertDateString('2023-11-09 13:32:45'), url: '/topics/rtasyrtasdyrty'},
     ]};
   return (
-    <Layout page_name="Topics" current_page="topics">
+    <Layout page_name="Topics" current_page="topics"  action={{label: 'Create', url: `/topics/new`}}>
       <TopicsTable title={topics.title} headers={topics.headers} rows={topics.rows} loading_message="Loading topics" />
     </Layout>
   )
