@@ -5,7 +5,6 @@ import FlashMessage from "./FlashMessage";
 
 export default function FlashMessages(){
   const messages = useFlashStore(state => state.messages);
-  const removeFirst = useFlashStore(state => state.removeFirst);
 
   console.log(messages);
 

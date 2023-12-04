@@ -4,7 +4,6 @@ import { FlashMessage } from '@/types/FlashMessageTypes';
 type FlashState = {
   messages: FlashMessage[];
   addMessage: (message: FlashMessage) => void,
-  removeFirst: () => void
 }
 
 /**
@@ -17,8 +16,7 @@ const useFlashStore = create<FlashState>()((set) => ({
     setTimeout(() => {
       set((state) => ({ messages: state.messages.filter((state_message) => state_message.label != message.label)}) )
     }, 5000)
-  },
-  removeFirst: () => set((state) => ({ messages: state.messages.slice(1, state.messages.length - 1)}))
+  }
 }))
 
 export default useFlashStore;
