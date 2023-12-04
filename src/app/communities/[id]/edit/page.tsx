@@ -26,7 +26,7 @@ export default function Community({ params }: { params: { id: string }}) {
   };
 
   return (
-    <Layout page_name={'Communities / ' + community.name} current_page='communities'>
+    <Layout page_name={'Communities / ' + community.name} current_page='communities' return_option={{label: "<- Back to community", url: '/communities/' + community.name}}>
       <div>
         <Text variant="heading1">Edit community: {community.name}</Text>
         <span className='italic'>Last edited on {convertDateString(community.last_edit, true)}</span>

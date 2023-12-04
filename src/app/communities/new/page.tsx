@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 
 import Layout from "@/components/Layout/Layout";
 import Text from "@/components/Text/Text";
-import { convertDateString } from "@/scripts/utils";
 import ManageCommunity from '@/components/Forms/ManageCommunity';
 
 export const metadata: Metadata = {
@@ -23,7 +22,7 @@ export default function Community() {
   };
 
   return (
-    <Layout page_name={'Communities / Create new'} current_page='communities'>
+    <Layout page_name={'Communities / Create new'} current_page='communities' return_option={{label: "<- Back to communities", url: '/communities'}}>
       <div>
         <Text variant="heading1">Create a new community</Text>
       </div>

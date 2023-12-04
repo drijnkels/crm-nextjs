@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 
 import Layout from "@/components/Layout/Layout";
+import Link from 'next/link';
 import Text from "@/components/Text/Text";
 import Section from '@/components/Layout/Section';
 import TopicsTable from "@/components/Tables/TopicsTable";
@@ -70,7 +71,7 @@ export default function Community({ params }: { params: { id: string }}) {
   ];
 
   return (
-    <Layout page_name={'Communities / ' + community.name} current_page='communities' action={{label: 'Edit', url: `/communities/${community.eid}/edit`}}>
+    <Layout page_name={'Communities / ' + community.name} current_page='communities' return_option={{label: "<- Back to communities", url: '/communities'}} action={{label: 'Edit', url: `/communities/${community.eid}/edit`}}>
       <div>
         <Text variant="heading1">Manage: {community.name}</Text>
         <span className='italic'>Created on {convertDateString(community.created_on)}</span>

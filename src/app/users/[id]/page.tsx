@@ -30,7 +30,7 @@ export default function Users() {
   const community_hears = ['name', 'active', 'joined_on', 'url'];
 
   return (
-    <Layout page_name="Users" current_page="users">
+    <Layout page_name="Users" current_page="users" return_option={{label: "<- Back to users", url: '/users'}}>
       <div className='flex gap-8'>
         <Section>
           <div className='flex items-center gap-4'>
