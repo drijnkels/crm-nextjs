@@ -44,7 +44,7 @@ export default function Organisation() {
   const community_hears = ['name', 'active', 'joined_on', 'url'];
 
   return (
-    <Layout page_name="Organisations" current_page="organisations">
+    <Layout page_name="Organisations" current_page="organisations" return_option={{label: "<- Back to organisations", url: '/organisations'}}>
       <div className='flex gap-8'>
         <Section>
           <div className='flex items-center gap-4'>

@@ -29,7 +29,7 @@ export default function Topics() {
 
   const views_headers = ['user', 'organisation', 'created_on', 'url'];
   return (
-    <Layout page_name="Topics" current_page='topics'>
+    <Layout page_name="Topics" current_page='topics' return_option={{label: "<- Back to topics", url: '/topics'}}>
       <div className='flex flex-col gap-1'>
         <Text variant="heading1">{topic.title}</Text>
         <div>Topic created in <Link href={"/communities/" + topic.community.eid} className='font-semibold text-zinc-600 hover:text-indigo-500 duration-200 transition-colors'>{topic.community.name}</Link></div>
