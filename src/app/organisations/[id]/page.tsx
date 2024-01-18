@@ -8,6 +8,9 @@ import TopicsTable from '@/components/Tables/TopicsTable';
 import UsersTable from '@/components/Tables/UsersTable';
 import CommunitiesTable from '@/components/Tables/CommunitiesTable';
 import { convertDateString, setAddress } from "@/scripts/utils";
+import {UserHeaderName} from "@/types/UserTypes";
+import {TopicHeaderName, TopicTableHeaders} from "@/types/TopicTypes";
+import {CommunityHeaderName} from "@/types/CommunityTypes";
 
 export const metadata: Metadata = {
   title: 'Organisations',
@@ -28,7 +31,7 @@ export default function Organisation() {
     phone: '+12122670860',
     description: 'Empowering Business Excellence Through Green Innovations',
     topics: [
-      {title: 'Green Sourcing for a Bright Tomorrow', organisation: "EcoLogiX Solutions", community: "CollabNet", views: 9, collaborations: 6, status: 'Live', created_on: convertDateString('2023-11-12 09:13:56'), url: '/topics/asdasdsaa'},
+      {title: 'Green Sourcing for a Bright Tomorrow', organisation_name: "EcoLogiX Solutions", community_name: "CollabNet", views: 9, collaborations: 6, status: 'Live', created_on: convertDateString('2023-11-12 09:13:56'), url: '/topics/asdasdsaa'},
     ],
     users: [
       {name: 'David Rodriguez', email: 'david.rodriguez@email.com', url: '/organisations/jdatsxezfh'},
@@ -40,9 +43,9 @@ export default function Organisation() {
     ]
   };
 
-  const topic_headers = ['title', 'community', 'created_on', 'url'];
-  const user_headers = ['name', 'email', 'url'];
-  const community_hears = ['name', 'active', 'joined_on', 'url'];
+  const topic_headers: Array<TopicHeaderName> = ['title', 'community_name', 'created_on', 'url'];
+  const user_headers: Array<UserHeaderName> = ['name', 'email', 'url'];
+  const community_hears: Array<CommunityHeaderName> = ['name', 'active', 'joined_on', 'url'];
 
   return (
     <Layout page_name="Organisations" current_page="organisations" action={{label: 'Edit', url: `/organisations/${organisation.eid}/edit`}} return_option={{label: "<- Back to organisations", url: '/organisations'}}>

@@ -20,7 +20,7 @@ type FormValues = {
     eid: string,
     name: string,
     street: string,
-    city: string,
+    city?: string,
     state: string,
     postal: string,
     province: string,
