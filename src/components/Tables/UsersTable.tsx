@@ -1,30 +1,12 @@
 import Table from "@/components/Elements/Table/Table";
+import { UserTableHeaders } from "@/types/UserTypes";
+import {TableProps} from "@/types/GeneralTypes";
 
-type OrgaTableProps = {
-  title: string;
-  headers: Array<string>;
-  rows: Array<{[key: string] : string | number}>;
-  loading_message?: string
-}
-
-// Define header type
-type Header = {
-  label: string;
-  field: string;
-  size: string;
-}
-
-// Define allowed headers
-type StandardHeaders = {
-  [key in 'name' | 'email' | 'topics' | 'collaborations' | 'active' | 'last_login' | 'joined_on' | 'created_on' | 'url' ] : Header
-}
-
-export default function UsersTable({ title, headers, rows, loading_message = 'Data is loading'}: OrgaTableProps){
-  const standard_headers: StandardHeaders = {
+export default function UsersTable({ title, headers, rows, loading_message = 'Data is loading'}: TableProps){
+  const standard_headers: UserTableHeaders = {
     name: {label: 'Name', field: 'name', size: 'flex-1'},
-    email: {label: 'Email', field: 'email', size: 'flex-1'}, 
-    topics: {label: 'Topics', field: 'topics', size: 'w-[100px]'},
-    collaborations: {label: 'Collaborations', field: 'collaborations', size: 'w-[120px]'},
+    email: {label: 'Email', field: 'email', size: 'flex-1'},
+    num_topics: {label: 'Topics', field: 'num_topics', size: 'w-[100px]'},
     active: {label: 'Active', field: 'active', size: 'w-[100px]'},
     last_login: {label: 'Last Login', field: 'last_login', size: 'w-[120px]'},
     joined_on: {label: 'Joined', field: 'joined_on', size: 'w-[120px]'},
@@ -33,7 +15,7 @@ export default function UsersTable({ title, headers, rows, loading_message = 'Da
   };
   const table_headers = [];
   for(let header of headers){
-    table_headers.push(standard_headers[header as keyof StandardHeaders]);
+    table_headers.push(standard_headers[header as keyof UserTableHeaders]);
   }
   return (
     <Table title={title} headers={table_headers} rows={rows} loading_message={loading_message} />
