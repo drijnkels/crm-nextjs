@@ -16,15 +16,16 @@ export const metadata: Metadata = {
 
 export default function Users() {
   const user = {
+    eid: 'jdatsxezfh',
     name: 'David Rodriguez',
     email: 'david.rodriguez@email.com',
     avatar: '/images/profile/David.png',
     topics: [
       {title: 'Green Sourcing for a Bright Tomorrow', organisation: "EcoLogiX Solutions", community_name: "CollabNet", views: 9, collaborations: 6, status: 'Live', created_on: convertDateString('2023-11-12 09:13:56'), url: '/topics/asdasdsaa'},
     ],
-    communities: [
-      {name: 'CollabNet', active: 'Active', created_on: convertDateString('2023-11-14 14:13:56'), url: '/communities/asdasdsaa'},
-      {name: 'BusinessLink Pro', active: 'Active', created_on: convertDateString('2023-11-14 14:08:25'), url: '/communities/ghkjghjghj'},
+    organisations: [
+      {eid: 'knrbpkdwne', name: 'EcoLogiX Solutions', url: '/organisations/knrbpkdwne'},
+      {eid: 'naxrqaawqy', name: 'DigitalVista Labs', url: '/organisations/naxrqaawqy'},
     ]
   };
 
