@@ -34,3 +34,5 @@ export type OrgaTableHeaders = {
 }
 
 export type OrganisationForTable = Pick<Organisation, 'eid' | 'name' | 'city' | 'num_users' | 'num_topics' | 'active' | 'created_on' | 'url'>;
+
+export type OrganisationForForm = Pick<Community, 'eid' | 'name' | 'url'>

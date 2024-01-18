@@ -27,12 +27,6 @@ export type View = {
     created_on: Date,
     url: string
 }
-type TopicsTableProps = {
-    title: string;
-    headers: Array<string>;
-    rows: Array<{[key: string] : string | number}>;
-    loading_message?: string
-}
 
 export type TopicHeaderName = 'title' | 'organisation_name' | 'community_name' | 'num_views' | 'status' | 'created_on' | 'url';
 

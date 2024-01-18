@@ -35,3 +35,5 @@ export type CommunityTableHeaders = {
 }
 
 export type CommunityForTable = Pick<Community, 'eid' | 'name' | 'num_topics' | 'num_users' | 'num_organisations' | 'url'>;
+
+export type CommunityForForm = Pick<Community, 'eid' | 'name' | 'url'>

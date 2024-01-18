@@ -26,3 +26,5 @@ export type UserTableHeaders = {
 }
 
 export type UserForTable = Pick<User, 'eid' | 'name' | 'email' | 'num_topics' | 'active' | 'last_login' | 'joined_on' | 'url'>;
+
+export type UserForForm = Pick<User, 'eid' | 'name' | 'email' | 'active' | 'url'>;
