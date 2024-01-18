@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Layout from "@/components/Layout/Layout";
 import OrgaTable from '@/components/Tables/OrgasTable';
+import {Organisation} from "@/types/OrganisationTypes";
 
 
 export const metadata: Metadata = {
@@ -8,16 +9,16 @@ export const metadata: Metadata = {
 }
 
 export default function Organisations() {
-  const organisations = [
-    {name: 'EcoLogiX Solutions', city: 'New York', users: 5, topics: 2, active: 'Active', created_on: '2023-11-08 16:35:12', url: '/organisations/knrbpkdwne'},
-    {name: 'DigitalVista Labs', city: 'Denver', users: 5, topics: 2, active: 'Active', created_on: '2023-11-08 16:30:29', url: '/organisations/naxrqaawqy'},
-    {name: 'WellnessWorks Pro', city: 'San Fransisco', users: 5, topics: 2, active: 'Active', created_on: '2023-11-08 16:28:55', url: '/organisations/kegrpbiwwf'},
-    {name: 'MarketMasters International', city: 'Seattle', users: 5, topics: 2, active: 'Active', created_on: '2023-11-08 16:24:02', url: '/organisations/lgfjvnvxdh'},
-    {name: 'IntelliServe Innovations', city: 'Los Angeles', users: 5, topics: 2, active: 'Active', created_on: '2023-11-08 16:20:38', url: '/organisations/aeljedumhf'},
+  const organisations: Organisation[] = [
+    {eid: 'knrbpkdwne', name: 'EcoLogiX Solutions', city: 'New York', num_users: 5, num_topics: 2, active: 'Active', created_on: '2023-11-08 16:35:12', url: '/organisations/knrbpkdwne'},
+    {eid: 'naxrqaawqy', name: 'DigitalVista Labs', city: 'Denver', num_users: 5, num_topics: 2, active: 'Active', created_on: '2023-11-08 16:30:29', url: '/organisations/naxrqaawqy'},
+    {eid: 'kegrpbiwwf', name: 'WellnessWorks Pro', city: 'San Fransisco', num_users: 5, num_topics: 2, active: 'Active', created_on: '2023-11-08 16:28:55', url: '/organisations/kegrpbiwwf'},
+    {eid: 'lgfjvnvxdh', name: 'MarketMasters International', city: 'Seattle', num_users: 5, num_topics: 2, active: 'Active', created_on: '2023-11-08 16:24:02', url: '/organisations/lgfjvnvxdh'},
+    {eid: 'aeljedumhf', name: 'IntelliServe Innovations', city: 'Los Angeles', num_users: 5, num_topics: 2, active: 'Active', created_on: '2023-11-08 16:20:38', url: '/organisations/aeljedumhf'},
   ];
   const headers = ['name', 'city', 'users', 'topics', 'url'];
   return (
-    <Layout page_name="Organisations" current_page="organisations">
+    <Layout page_name="Organisations" current_page="organisations" action={{label: 'Create', url: `/organisations/new`}} >
       <OrgaTable title='Organisations' headers={headers} rows={organisations} />
     </Layout>
   )

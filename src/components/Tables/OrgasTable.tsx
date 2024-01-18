@@ -1,9 +1,10 @@
 import Table from "@/components/Elements/Table/Table";
+import {OrganisationForTable} from "@/types/OrganisationTypes";
 
 type OrgaTableProps = {
   title: string;
   headers: Array<string>;
-  rows: Array<{[key: string] : string | number}>;
+  rows: Array<OrganisationForTable>;
   loading_message?: string
 }
 
@@ -16,16 +17,15 @@ type Header = {
 
 // Define allowed headers
 type StandardHeaders = {
-  [key in 'name' | 'city' | 'users' | 'topics' | 'collaborations' | 'active' | 'created_on' | 'url' ] : Header
+  [key in 'name' | 'city' | 'users' | 'topics' | 'active' | 'created_on' | 'url' ] : Header
 }
 
 export default function OrgaTable({ title, headers, rows, loading_message = 'Data is loading'}: OrgaTableProps){
   const standard_headers: StandardHeaders = {
     name: {label: 'Name', field: 'name', size: 'flex-1'},
     city: {label: 'City', field: 'city', size: 'flex-1'}, 
-    users: {label: 'Users', field: 'users', size: 'w-[100px]'},
-    topics: {label: 'Topics', field: 'topics', size: 'w-[100px]'},
-    collaborations: {label: 'Collaborations', field: 'collaborations', size: 'w-[120px]'},
+    users: {label: 'Users', field: 'num_users', size: 'w-[100px]'},
+    topics: {label: 'Topics', field: 'num_topics', size: 'w-[100px]'},
     active: {label: 'Active', field: 'active', size: 'w-[100px]'},
     created_on: {label: 'Created', field: 'created_on', size: 'w-[120px]'},
     url: {label: 'View', field: 'url', size: 'w-[100px]'},
