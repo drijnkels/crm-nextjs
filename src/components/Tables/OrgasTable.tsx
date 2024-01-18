@@ -2,7 +2,7 @@ import Table from "@/components/Elements/Table/Table";
 import { OrgaTableHeaders } from "@/types/OrganisationTypes";
 import {TableProps} from "@/types/GeneralTypes";
 
-export default function OrgaTable({ title, headers, rows, loading_message = 'Data is loading'}: TableProps){
+export default function OrgasTable({ title, headers, rows, loading_message = 'Data is loading'}: TableProps){
   const standard_headers: OrgaTableHeaders = {
     name: {label: 'Name', field: 'name', size: 'flex-1'},
     city: {label: 'City', field: 'city', size: 'flex-1'},

@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Layout from "@/components/Layout/Layout";
-import OrgaTable from '@/components/Tables/OrgasTable';
+import OrgasTable from '@/components/Tables/OrgasTable';
 import {OrgaHeaderName, OrganisationForTable} from "@/types/OrganisationTypes";
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function Organisations() {
   const headers: Array<OrgaHeaderName> = ['name', 'city', 'num_users', 'num_topics', 'url'];
   return (
     <Layout page_name="Organisations" current_page="organisations" action={{label: 'Create', url: `/organisations/new`}} >
-      <OrgaTable title='Organisations' headers={headers} rows={organisations} />
+      <OrgasTable title='Organisations' headers={headers} rows={organisations} />
     </Layout>
   )
 }

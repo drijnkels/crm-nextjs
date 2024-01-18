@@ -20,7 +20,7 @@ export default function Users() {
   ];
   const headers: Array<UserHeaderName> = ['name', 'email', 'num_topics', 'last_login', 'url'];
   return (
-    <Layout page_name="Users" current_page="users">
+    <Layout page_name="Users" current_page="users" action={{label: 'Create', url: `/users/new`}}>
       <UsersTable title="Users" headers={headers} rows={users} />
     </Layout>
   )
