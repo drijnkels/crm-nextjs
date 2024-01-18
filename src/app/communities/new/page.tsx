@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Manage community',
 }
 
-export default function Community() {
+export default function NewCommunity() {
   const community = {
     eid: "",
     name: '',

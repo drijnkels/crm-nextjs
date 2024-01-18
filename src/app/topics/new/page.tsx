@@ -5,10 +5,10 @@ import Text from "@/components/Text/Text";
 import ManageTopic from '@/components/Forms/ManageTopic';
 
 export const metadata: Metadata = {
-  title: 'Manage community',
+  title: 'Create a new community',
 }
 
-export default function Community() {
+export default function NewTopic() {
   const topic = {
     eid: "",
     title: '',

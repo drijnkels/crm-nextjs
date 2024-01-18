@@ -7,6 +7,8 @@ import Section from "@/components/Layout/Section";
 import Text from "@/components/Text/Text";
 import TopicsTable from "@/components/Tables/TopicsTable";
 import CommunitiesTable from "@/components/Tables/CommunitiesTable";
+import {TopicHeaderName} from "@/types/TopicTypes";
+import {CommunityHeaderName} from "@/types/CommunityTypes";
 
 export const metadata: Metadata = {
   title: 'Users',
@@ -18,7 +20,7 @@ export default function Users() {
     email: 'david.rodriguez@email.com',
     avatar: '/images/profile/David.png',
     topics: [
-      {title: 'Green Sourcing for a Bright Tomorrow', organisation: "EcoLogiX Solutions", community: "CollabNet", views: 9, collaborations: 6, status: 'Live', created_on: convertDateString('2023-11-12 09:13:56'), url: '/topics/asdasdsaa'},
+      {title: 'Green Sourcing for a Bright Tomorrow', organisation: "EcoLogiX Solutions", community_name: "CollabNet", views: 9, collaborations: 6, status: 'Live', created_on: convertDateString('2023-11-12 09:13:56'), url: '/topics/asdasdsaa'},
     ],
     communities: [
       {name: 'CollabNet', active: 'Active', created_on: convertDateString('2023-11-14 14:13:56'), url: '/communities/asdasdsaa'},
@@ -26,8 +28,8 @@ export default function Users() {
     ]
   };
 
-  const topic_headers = ['title', 'community', 'created_on', 'url'];
-  const community_hears = ['name', 'active', 'joined_on', 'url'];
+  const topic_headers: Array<TopicHeaderName> = ['title', 'community_name', 'created_on', 'url'];
+  const community_hears: Array<CommunityHeaderName> = ['name', 'active', 'joined_on', 'url'];
 
   return (
     <Layout page_name="Users" current_page="users" return_option={{label: "<- Back to users", url: '/users'}}>
