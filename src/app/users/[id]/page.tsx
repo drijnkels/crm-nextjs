@@ -20,6 +20,7 @@ export default function Users() {
     eid: 'jdatsxezfh',
     name: 'David Rodriguez',
     email: 'david.rodriguez@email.com',
+    description: 'A little bit about David',
     avatar: '/images/profile/David.png',
     topics: [
       {title: 'Green Sourcing for a Bright Tomorrow', organisation: "EcoLogiX Solutions", community_name: "CollabNet", views: 9, collaborations: 6, status: 'Live', created_on: convertDateString('2023-11-12 09:13:56'), url: '/topics/asdasdsaa'},
@@ -34,7 +35,7 @@ export default function Users() {
   const organisation_headers: Array<OrgaHeaderName> = ['name', 'active', 'url'];
 
   return (
-    <Layout page_name="Users" current_page="users" return_option={{label: "<- Back to users", url: '/users'}}>
+    <Layout page_name="Users" current_page="users" action={{label: 'Edit', url: `/users/${user.eid}/edit`}} return_option={{label: "<- Back to users", url: '/users'}}>
       <div className='flex gap-8'>
         <Section>
           <div className='flex items-center gap-4'>
@@ -44,7 +45,7 @@ export default function Users() {
         </Section>
         <div>
           <div className="max-w-[450px] py-4 px-6 bg-zinc-100 rounded flex gap-4 whitespace-pre">
-            Bio?
+            {user.description}
           </div>
         </div>
       </div>
