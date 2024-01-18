@@ -1,13 +1,13 @@
 import { DateTime } from "luxon";
 
 /**
- * Convert a DB datestring into another format, defaults to dd/MM/yyyy
+ * Convert a DB date string into another format, defaults to dd/MM/yyyy
  * @param {date} dateString 
  * @param {boolean} time 
  * @param {string} format 
- * @returns 
+ * @returns {string}
  */
-export const convertDateString = (dateString, time = false, format = 'dd/MM/yyyy') => {
+export const convertDateString = (dateString: string, time: boolean = false, format: string = 'dd/MM/yyyy'): string => {
   if(!dateString){
     return '-';
   }
@@ -25,7 +25,20 @@ export const convertDateString = (dateString, time = false, format = 'dd/MM/yyyy
   return date.toFormat(format);
 }
 
-export const setAddress = ( entity ) => {
+type EntityAddress = {
+  street: string,
+  city: string,
+  state: string,
+  postal: string,
+
+}
+/**
+ * Attempt formatting an address based on the available data for an Entity
+ * Could be a user or organisation
+ * @param entity
+ * @return string
+ */
+export const setAddress = ( entity: EntityAddress ): string => {
   let address = [];
   if (entity.street) {
     address.push(entity.street);
