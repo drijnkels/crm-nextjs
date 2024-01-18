@@ -23,7 +23,6 @@ export default function Topics() {
       {user: 'David Rodriguez', organisation: 'DigitalVista Labs', created_on: convertDateString('2023-11-15 09:12:45', true), url: '/users/jdatsxezfh'}
     ], 
     tags: ['Green', 'Sustainablty', 'Carbon Footprint'],
-    collaborations: 6,
     status: 'Live', 
     created_on: convertDateString('2023-11-12 09:13:56'), 
   };
