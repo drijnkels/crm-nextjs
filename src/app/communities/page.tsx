@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 
 export default function Communities() {
   const communities = [
-    {name: 'CollabNet', topics: 9, organisations: 4, users: 14, collaborations: 6, url: '/communities/asdasdsaa'},
-    {name: 'BusinessLink Pro', topics: 14, organisations: 2, users: 6, collaborations: 0, url: '/communities/ghkjghjghj'},
-    {name: 'IndustryInsights', topics: 21, organisations: 8, users: 56, collaborations: 12, url: '/communities/rtyrtyrty'},
+    {eid: 'asdasdsaa', name: 'CollabNet', num_topics: 9, num_organisations: 4, num_users: 14, num_collaborations: 6, url: '/communities/asdasdsaa'},
+    {eid: 'ghkjghjghj', name: 'BusinessLink Pro', num_topics: 14, num_organisations: 2, num_users: 6, num_collaborations: 0, url: '/communities/ghkjghjghj'},
+    {eid: 'rtyrtyrty', name: 'IndustryInsights', num_topics: 21, num_organisations: 8, num_users: 56, num_collaborations: 12, url: '/communities/rtyrtyrty'},
   ];
 
   const headers = ['name', 'topics', 'organisations', 'users', 'url'];
