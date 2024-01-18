@@ -6,7 +6,7 @@ import {useRouter} from "next/navigation";
 import {SubmitHandler, useForm} from "react-hook-form";
 import useFlashStore from "@/stores/useFlashStore";
 import {FlashMessage} from "@/types/FlashMessageTypes";
-import {Community} from "@/types/CommunityTypes";
+import {CommunityForForm} from "@/types/CommunityTypes";
 
 import Form from "@/components/Form/Form";
 import Section from "@/components/Layout/Section";
@@ -29,7 +29,7 @@ type FormValues = {
     web: string,
     phone: string,
     description: string,
-    communities: Community[],
+    communities: CommunityForForm[],
     community_eids?: string[],
     submit_url: string,
     feedback: {pos: string, neg?: string}
@@ -52,15 +52,15 @@ export default function ManageOrganisation ({eid, name, street, city, state, pos
         router.push(submit_url);
     };
 
-    const communityList: Community[] = [
+    const communityList: CommunityForForm[] = [
         {eid: 'asdasdsaa', name: 'CollabNet', url: '/communities/asdasdsaa'},
         {eid: 'ghkjghjghj', name: 'BusinessLink Pro', url: '/communities/ghkjghjghj'},
         {eid: 'rtyrtyrty', name: 'IndustryInsights', url: '/communities/rtyrtyrty'},
     ];
 
     const [searchTerm, setSearchTerm] = useState("");
-    const [searchResults, setSearchResults] = useState<Community[]>([]);
-    const [connectedCommunities, setConnectedCommunities] = useState<Community[]>(communities);
+    const [searchResults, setSearchResults] = useState<CommunityForForm[]>([]);
+    const [connectedCommunities, setConnectedCommunities] = useState<CommunityForForm[]>(communities);
     const [connectedCommIds, setConnectedCommIds] = useState<string[]>(communities.map((c) => c.eid));
 
     // Run a search through the possible communities,
@@ -74,14 +74,14 @@ export default function ManageOrganisation ({eid, name, street, city, state, pos
     }
 
     // Add a new community to the community list and store the eid in a separate variable for form submission
-    const handleAddCommunity = (community: Community) => {
+    const handleAddCommunity = (community: CommunityForForm) => {
         setSearchResults([]);
-        const newCommunityList =[...connectedCommunities, community];
+        const newCommunityList = [...connectedCommunities, community];
         setConnectedCommunities(newCommunityList);
         setConnectedCommIds(newCommunityList.map((c) => c.eid));
     }
 
-    const handleRemoveCommunity = (community: Community) => {
+    const handleRemoveCommunity = (community: CommunityForForm) => {
         setConnectedCommunities(connectedCommunities.filter((c) => c.eid != community.eid));
     }
 

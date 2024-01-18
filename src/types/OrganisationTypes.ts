@@ -1,6 +1,6 @@
 import {Topic} from "@/types/TopicTypes";
 import {User} from "@/types/UserTypes";
-import {Community} from "@/types/CommunityTypes";
+import {Community, CommunityForTable} from "@/types/CommunityTypes";
 import {Header} from "@/types/GeneralTypes";
 
 export type Organisation = {
@@ -18,7 +18,7 @@ export type Organisation = {
     description: string,
     topics?: Topic[],
     users?: User[],
-    communities: Community[],
+    communities: CommunityForTable[],
     num_users?: number,
     num_topics?: number,
     active?: string,

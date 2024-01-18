@@ -5,7 +5,7 @@ import Text from "@/components/Text/Text";
 import ManageTopic from '@/components/Forms/ManageTopic';
 
 export const metadata: Metadata = {
-  title: 'Create a new community',
+  title: 'Create a new Topic',
 }
 
 export default function NewTopic() {
@@ -15,9 +15,9 @@ export default function NewTopic() {
     content: "",
     tags: [],
     status: "",
-    community: "",
-    organisation: "",
-    user: "",
+    community: null,
+    organisation: null,
+    user: null,
   };
 
   return (

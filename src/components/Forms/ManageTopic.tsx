@@ -23,8 +23,8 @@ type FormValues = {
   submit_url: string,
   feedback: {pos: string, neg?: string}
   title: string;
-  community: CommunityForForm;
-  organisation: OrganisationForForm;
+  community: CommunityForForm | null;
+  organisation: OrganisationForForm | null;
   user: UserForForm | null;
   content: string;
   tags: string[];
@@ -124,7 +124,7 @@ export default function ManageTopic ({ eid, submit_url, feedback, title, user, o
             label='Community *'
             id='community'
             name='community'
-            value={community.eid}
+            value={community ? community.eid : ''}
             options={communityOptions}
             register={register}
             required="Community is required"

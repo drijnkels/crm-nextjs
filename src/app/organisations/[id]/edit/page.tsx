@@ -24,8 +24,8 @@ export default function EditOrganisation(){
         phone: '+12122670860',
         description: 'Empowering Business Excellence Through Green Innovations',
         communities: [
-            {eid: 'asdasdsaa', name: 'CollabNet', active: 'Active', created_on: convertDateString('2023-11-14 14:13:56'), url: '/communities/asdasdsaa'},
-            {eid: 'ghkjghjghj', name: 'BusinessLink Pro', active: 'Active', created_on: convertDateString('2023-11-14 14:08:25'), url: '/communities/ghkjghjghj'},
+            {eid: 'asdasdsaa', name: 'CollabNet', url: '/communities/asdasdsaa'},
+            {eid: 'ghkjghjghj', name: 'BusinessLink Pro', url: '/communities/ghkjghjghj'},
         ]
     };
     // const current_communities = organisation.communities.map((c) => c.eid);

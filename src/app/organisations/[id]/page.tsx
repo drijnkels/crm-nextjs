@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import Layout from "@/components/Layout/Layout";
 import Section from '@/components/Layout/Section';
 import Text from '@/components/Text/Text';
