@@ -12,7 +12,7 @@ export default function Menu({ current_page }: {current_page: string}){
     // {url: '/events', text: 'Events', icon: TicketIcon, active: (current_page == 'events' ? true : false)},
   ]
   return(
-    <div className="relative bg-zinc-50 h-screen w-[240px] flex flex-col border-r border-zinc-100 text-zinc-500 font-semibold text-[14px]">
+    <menu role='menu' className="relative bg-zinc-50 h-screen w-[240px] flex flex-col border-r border-zinc-100 text-zinc-500 font-semibold text-[14px]">
       <div className="fixed w-[240px] h-full bg-zinc-50">
         <div className="px-2 h-[56px] flex items-center justify-center rounded-md border-b border-zinc-200">CRM</div>
         <div className="p-2 flex flex-col">
@@ -24,6 +24,6 @@ export default function Menu({ current_page }: {current_page: string}){
         <MenuItem Icon={UserCircleIcon} url='/profile' text="Profile" active={current_page == 'profile'} />
         <MenuItem Icon={ArrowLeftOnRectangleIcon} url='/logout' text="Logout" active={false}/>
       </div>
-    </div>
+    </menu>
   )
 }

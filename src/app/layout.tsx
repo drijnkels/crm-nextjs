@@ -22,7 +22,9 @@ export default function RootLayout({
       <Head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+      </body>
     </html>
   )
 }
