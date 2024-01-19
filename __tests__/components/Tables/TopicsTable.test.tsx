@@ -7,7 +7,7 @@ import {TopicHeaderName} from "@/types/TopicTypes";
 
 const headers: Array<TopicHeaderName> = ['title', 'organisation_name', 'community_name', 'num_views', 'status', 'created_on', 'url'];
 
-describe('OrgasTable', () => {
+describe('Topics table test', () => {
 
   beforeEach(() => {
     render (

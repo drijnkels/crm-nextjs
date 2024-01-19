@@ -7,7 +7,7 @@ import CommunitiesTable from "@/components/Tables/CommunitiesTable";
 
 const headers: Array<CommunityHeaderName> = ['name', 'num_topics', 'num_organisations', 'num_users', 'url'];
 
-describe('CommunitiesTable', () => {
+describe('Communities table test', () => {
 
   beforeEach(() => {
     render (

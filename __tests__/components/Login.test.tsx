@@ -1,8 +1,7 @@
-import { vi, describe, it, expect, beforeEach } from "vitest";
-import { render, screen, waitFor } from "@testing-library/react";
+import { describe, it, expect, beforeEach } from "vitest";
+import { render, screen } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
 import Home from "@/app/page"
-import {AppRouterContextProviderMock } from '../app-router-context-provider-mock';
 
 describe('Login', () => {
 
@@ -23,9 +22,6 @@ describe('Login', () => {
   })
 
   it('should warn if no email was entered', async () => {
-
-    const emailInput = screen.getByLabelText(/Your email/i)
-    const passwordInput = screen.getByLabelText(/Your password/i)
     const loginButton = screen.getByRole('button', {name: /Login/i})
 
     await userEvent.click(loginButton);
@@ -36,7 +32,6 @@ describe('Login', () => {
 
   it('should warn if an invalid email was entered', async () => {
     const emailInput = screen.getByLabelText(/Your email/i)
-    const passwordInput = screen.getByLabelText(/Your password/i)
     const loginButton = screen.getByRole('button', {name: /Login/i})
 
     await userEvent.type(emailInput, 'invalidemail')
