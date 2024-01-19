@@ -1,6 +1,6 @@
 {
   "name": "crm-nextjs",
-  "version": "0.1.0",
+  "version": "0.6.0",
   "private": false,
   "license": "Apache-2.0",
   "scripts": {
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@testing-library/user-event": "^14.5.2",
     "luxon": "^3.4.4",
     "next": "14.0.2",
     "react": "^18",
