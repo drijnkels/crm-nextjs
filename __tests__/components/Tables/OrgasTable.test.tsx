@@ -7,7 +7,7 @@ import {OrgaHeaderName} from "@/types/OrganisationTypes";
 
 const headers: Array<OrgaHeaderName> = ['name', 'city', 'num_users', 'num_topics', 'url'];
 
-describe('OrgasTable', () => {
+describe('Orga table test', () => {
 
   beforeEach(() => {
     render (
