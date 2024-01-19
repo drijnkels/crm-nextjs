@@ -15,10 +15,11 @@ export const convertDateString = (dateString: string, time: boolean = false, for
   const date = DateTime.fromISO(dateString.replace(' ', 'T'));
   date.setLocale("nl");
 
-  const today = `${DateTime.now().c.year} ${DateTime.now().c.month} ${DateTime.now().c.day}`
-  const dbDate = `${date.c.year} ${date.c.month} ${date.c.day}`
+  const today = DateTime.now();
 
-  if (today == dbDate) { return `Today @ ${date.toFormat('hh:mm')}`}
+  if (date.hasSame(today, 'day')) {
+    return `Today @ ${date.toFormat('hh:mm')}`
+  }
 
   if (time) return date.toFormat(date.toFormat('hh:mm') + ' - ' + format);
 

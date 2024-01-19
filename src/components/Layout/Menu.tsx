@@ -1,5 +1,5 @@
 import MenuItem from "./MenuItem";
-import { HomeIcon, UserGroupIcon, DocumentIcon, DocumentCheckIcon, BuildingOfficeIcon, UserIcon, TicketIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { HomeIcon, UserGroupIcon, DocumentIcon, DocumentCheckIcon, BuildingOfficeIcon, UserIcon, TicketIcon, UserCircleIcon, ArrowLeftOnRectangleIcon  } from "@heroicons/react/24/solid";
 
 export default function Menu({ current_page }: {current_page: string}){
   const menuItems = [
@@ -12,7 +12,7 @@ export default function Menu({ current_page }: {current_page: string}){
     // {url: '/events', text: 'Events', icon: TicketIcon, active: (current_page == 'events' ? true : false)},
   ]
   return(
-    <div className="bg-zinc-50 h-screen w-[240px] flex flex-col border-r border-zinc-100 text-zinc-500 font-semibold text-[14px]">
+    <div className="relative bg-zinc-50 h-screen w-[240px] flex flex-col border-r border-zinc-100 text-zinc-500 font-semibold text-[14px]">
       <div className="fixed w-[240px] h-full bg-zinc-50">
         <div className="px-2 h-[56px] flex items-center justify-center rounded-md border-b border-zinc-200">CRM</div>
         <div className="p-2 flex flex-col">
@@ -20,8 +20,9 @@ export default function Menu({ current_page }: {current_page: string}){
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 w-[240px] p-2 flex">
+      <div className="fixed bottom-0 left-0 w-[240px] p-2 flex flex-col">
         <MenuItem Icon={UserCircleIcon} url='/profile' text="Profile" active={current_page == 'profile'} />
+        <MenuItem Icon={ArrowLeftOnRectangleIcon} url='/logout' text="Logout" active={false}/>
       </div>
     </div>
   )
