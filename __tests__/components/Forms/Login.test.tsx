@@ -32,9 +32,11 @@ describe('Login', () => {
 
   it('should warn if an invalid email was entered', async () => {
     const emailInput = screen.getByLabelText(/Your email/i)
+    const passwordInput = screen.getByLabelText(/Your password/i)
     const loginButton = screen.getByRole('button', {name: /Login/i})
 
     await userEvent.type(emailInput, 'invalidemail')
+    await userEvent.type(passwordInput, 'validpassword')
 
     await userEvent.click(loginButton)
 
