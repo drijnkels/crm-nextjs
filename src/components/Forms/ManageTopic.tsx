@@ -88,7 +88,9 @@ export default function ManageTopic ({ eid, submit_url, feedback, title, user, o
   // Run a search through the possible communities,
   // Ignore currently added communities
   const handleOrgaSearch = () => {
-    const newList: OrganisationForForm[] = organisationList.filter((c) => c.name.toLowerCase().indexOf(orgaSearchTerm.toLowerCase()) > -1);
+    const newList: OrganisationForForm[] = organisationList.filter(
+      (c) =>
+        c.name.toLowerCase().indexOf(orgaSearchTerm.toLowerCase()) > -1);
     setOrgaSearchResults(newList);
   }
   const handleOrgaSearchTermChange = (newTerm: string) => {

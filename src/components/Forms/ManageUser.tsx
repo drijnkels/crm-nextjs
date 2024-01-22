@@ -66,7 +66,7 @@ export default function ManageUser ({ eid, submit_url, feedback, name, email, de
     const newList: OrganisationForForm[] = organisationList.filter(
       (c) =>
         connectedOrgaIds.indexOf(c.eid) === -1 &&
-        c.name.indexOf(orgaSearchTerm) > -1
+        c.name.toLowerCase().indexOf(orgaSearchTerm.toLowerCase()) > -1
     );
     setOrgaSearchResults(newList);
   }
