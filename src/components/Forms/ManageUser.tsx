@@ -11,12 +11,10 @@ import Section from '@/components/Layout/Section';
 import Form from '@/components/Form/Form';
 import Input from '@/components/Form/Input';
 import Textarea from '@/components/Form/Textarea';
-import Dropdown from "@/components/Form/Dropdown";
 import Button from '@/components/Form/Button';
 import {CommunityForForm} from "@/types/CommunityTypes";
 import { OrganisationForForm} from "@/types/OrganisationTypes";
 import SearchAdd from "@/components/Form/SearchAdd";
-import {UserForForm} from "@/types/UserTypes";
 
 type FormValues = {
   eid: string
@@ -41,7 +39,6 @@ export default function ManageUser ({ eid, submit_url, feedback, name, email, de
     {eid: 'lgfjvnvxdh', name: 'MarketMasters International', url: '/organisations/lgfjvnvxdh'},
     {eid: 'aeljedumhf', name: 'IntelliServe Innovations', url: '/organisations/aeljedumhf'},
   ];
-  const [selectedOrganisation, setSelectedOrganisation] = useState<OrganisationForForm[] | null>(organisations);
 
   const onSubmit: SubmitHandler<FormValues> = data => {
     if (setConnectedOrganisations.length == 0) {
@@ -66,7 +63,11 @@ export default function ManageUser ({ eid, submit_url, feedback, name, email, de
   // Run a search through the possible communities,
   // Ignore currently added communities
   const handleOrgaSearch = () => {
-    const newList: OrganisationForForm[] = organisationList.filter((c) => connectedOrgaIds.indexOf(c.eid) === -1);
+    const newList: OrganisationForForm[] = organisationList.filter(
+      (c) =>
+        connectedOrgaIds.indexOf(c.eid) === -1 &&
+        c.name.indexOf(orgaSearchTerm) > -1
+    );
     setOrgaSearchResults(newList);
   }
   const handleOrgaSearchTermChange = (newTerm: string) => {
