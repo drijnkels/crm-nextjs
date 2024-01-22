@@ -37,7 +37,7 @@ describe('Login', () => {
     const passwordInput = screen.getByLabelText(/Your password/i)
     const loginButton = screen.getByRole('button', {name: /Login/i})
 
-    await userEvent.type(emailInput, '')
+    await userEvent.type(emailInput, 'invalidemail')
     await userEvent.type(passwordInput, 'validpassword')
 
     await userEvent.click(loginButton)
