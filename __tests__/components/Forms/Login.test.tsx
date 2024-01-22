@@ -37,12 +37,12 @@ describe('Login', () => {
     const passwordInput = screen.getByLabelText(/Your password/i)
     const loginButton = screen.getByRole('button', {name: /Login/i})
 
-    await userEvent.type(emailInput, 'invalidemail')
+    await userEvent.type(emailInput, '')
     await userEvent.type(passwordInput, 'validpassword')
 
     await userEvent.click(loginButton)
 
-    expect(screen.getByText('valid email')).toBeDefined()
+    expect(screen.getByText('Please enter a valid email')).toBeDefined()
   })
 
   it('should login', async () => {
