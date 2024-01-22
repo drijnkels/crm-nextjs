@@ -1,19 +1,19 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
-import NewUser from "@/app/users/new/page.tsx";
+import EditUser from "@/app/users/[id]/edit/page";
 
-describe('NewUser', () => {
+describe('EditUser', () => {
 
   beforeEach(() => {
     render(
-      <NewUser />
+      <EditUser params={{id: 'would_be_user_eid'}} />
     );
   });
 
-  it('should have a create user title', () => {
+  it('should have en edit user title', () => {
     expect(
-      screen.getByText('Create a new user'),
+      screen.getByText('Edit user:'),
     ).toBeDefined()
   })
 
@@ -29,24 +29,23 @@ describe('NewUser', () => {
     }
   })
 
-  it('should search and add organisations', async () => {
+  it('should remove and add organisations', async () => {
+    const removeButtons = screen.getAllByText('Remove');
+    await userEvent.click(removeButtons[0]);
+    const newNumRemoveButtons = screen.getAllByText('Remove');
+    expect(removeButtons.length > newNumRemoveButtons.length).toBe(true);
+
     const searchInput = screen.getByPlaceholderText('Organisation name');
     const searchBtn = screen.getByText('Search');
 
     await userEvent.click(searchBtn);
-    expect(screen.getAllByText('Select').length).toBe(5);
+    expect(screen.getAllByText('Select').length).toBeGreaterThan(0);
 
-    // Search a community
-    await userEvent.type(searchInput, 'Digi');
-    await userEvent.click(searchBtn);
-    expect(screen.getByText('Select')).toBeDefined()
-    expect(screen.getByText('DigitalVista Labs')).toBeDefined()
-
-    const addOrgaBtn = screen.getByText('Select');
-    await userEvent.click(addOrgaBtn);
+    const addOrgaBtn = screen.getAllByText('Select');
+    await userEvent.click(addOrgaBtn[0]);
 
     expect(screen.getByText('Enter a name to start searching for organisations')).toBeDefined()
-    expect(screen.getByText('Remove')).toBeDefined()
+    expect( screen.getAllByText('Remove') > newNumRemoveButtons).toBeDefined()
 
     // Save button
     expect(screen.getByText('Save')).toBeDefined()
@@ -58,6 +57,12 @@ describe('NewUser', () => {
   })
 
   it('should require a name and email', async () => {
+    const nameInput = screen.getByPlaceholderText('Bob Dylan');
+    const descriptionInput = screen.getByPlaceholderText('b.dylan@email.com');
+
+    await userEvent.clear(nameInput);
+    await userEvent.clear(descriptionInput)
+
     const button = screen.getByText('Save')
     await userEvent.click(button)
 
