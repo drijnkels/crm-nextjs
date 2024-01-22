@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
-import NewTopic from "@/app/topics/new/page.tsx";
+import NewTopic from "@/app/topics/new/page";
 
 describe('CreateTopic', () => {
 
