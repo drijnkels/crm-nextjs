@@ -13,7 +13,6 @@ export const convertDateString = (dateString: string, time: boolean = false, for
   }
   
   const date = DateTime.fromISO(dateString.replace(' ', 'T'));
-  date.setLocale("nl");
 
   const today = DateTime.now();
 

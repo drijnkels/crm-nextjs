@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+
 import { useRouter } from 'next/navigation'
 import { useForm, SubmitHandler } from 'react-hook-form';
 
@@ -24,7 +24,9 @@ export default function Login() {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Input id="email" label="Your email" name="email" type="email" placeholder="name@email.com" register={register} required="Email is required" error={errors.email?.message} />
+      <Input id="email" label="Your email" name="email" type="email" placeholder="name@email.com" register={register} required="Email is required" pattern={{
+        value: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        message: "Please enter a valid email"}} error={errors.email?.message} />
       <Input id="password" label="Your password" name="password" type="password" placeholder="Your password" register={register} required="Password is required" error={errors.password?.message} />
       <Button type="submit">Login</Button>
     </Form>
