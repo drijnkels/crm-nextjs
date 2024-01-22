@@ -66,7 +66,10 @@ export default function ManageOrganisation ({eid, name, street, city, state, pos
     // Run a search through the possible communities,
     // Ignore currently added communities
     const handleSearch = () => {
-        const newList = communityList.filter((c) => c.name.indexOf(searchTerm) > -1 && connectedCommIds.indexOf(c.eid) === -1);
+        const newList = communityList.filter(
+          (c) =>
+            c.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 &&
+            connectedCommIds.indexOf(c.eid) === -1);
         setSearchResults(newList);
     }
     const handleSearchTermChange = (newTerm: string) => {
