@@ -1,23 +1,23 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
-import NewOrganisation from "@/app/organisations/new/page.tsx";
+import EditOrganisation from "@/app/organisations/[id]/edit/page";
 
 describe('CreateTopic', () => {
 
   beforeEach(() => {
     render(
-      <NewOrganisation />
+      <EditOrganisation params={{id: 'would_be_orga_eid'}} />
     );
   });
 
   it('should have a create organisation title', () => {
     expect(
-      screen.getByText('Create a new organisation'),
+      screen.getByText(/Edit:/i),
     ).toBeDefined()
   })
 
-  it('It should have the correct fields', () => {
+  it('should have the correct fields', () => {
     const fields = ['Name', 'Description', 'Website', 'Street','Postal','City', 'State', 'Country', 'Phone', 'Email', 'Search communities'];
     for (let field of fields) {
       expect(screen.getByText(field)).toBeDefined()
@@ -30,22 +30,21 @@ describe('CreateTopic', () => {
   })
 
   it('should search and add communities', async () => {
-    const commInput = screen.getByPlaceholderText('Community name');
-    const searchBtn = screen.getByText('Search');
+    const searchBtn = screen.getByText('Search')
 
+    // Get the current list of communities so we can compare it to after we add a new one
+    const current_communities = screen.getAllByText('Remove')
+
+    // Search and add a new community
     await userEvent.click(searchBtn);
-    expect(screen.getAllByText('Add').length).toBe(3);
+    const comm_options = screen.queryAllByText('Add')
+    expect(comm_options.length).toBeGreaterThan(0)
+    await userEvent.click(comm_options[0])
 
-    // Search a community
-    await userEvent.type(commInput, 'col');
-    await userEvent.click(searchBtn);
-    expect(screen.getByText('CollabNet')).toBeDefined()
-
-    const addOrgaBtn = screen.getByText('Add');
-    await userEvent.click(addOrgaBtn);
-
+    // Get the new list of communities and test if there is an extra one now
+    const new_communities = screen.getAllByText('Remove');
     expect(screen.getByText('Enter a name to start searching for communities')).toBeDefined()
-    expect(screen.getByText('Remove')).toBeDefined()
+    expect(new_communities.length - current_communities.length).toBe(1)
 
     // Save button
     expect(screen.getByText('Save')).toBeDefined()
@@ -57,6 +56,12 @@ describe('CreateTopic', () => {
   })
 
   it('should require a name and description', async () => {
+    const nameInput = screen.getByPlaceholderText('The name of the organisation')
+    const descriptionInput = screen.getByPlaceholderText('A short description about the organisation')
+
+    await userEvent.clear(nameInput);
+    await userEvent.clear(descriptionInput);
+
     const button = screen.getByText('Save')
     await userEvent.click(button)
 

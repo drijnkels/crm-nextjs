@@ -1,19 +1,19 @@
 import { describe, it, expect, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
-import NewCommunity from "@/app/communities/new/page.tsx";
+import EditCommunity from "@/app/communities/[id]/edit/page";
 
-describe('CreateCommunity', () => {
+describe('EditCommunity', () => {
 
   beforeEach(() => {
     render(
-      <NewCommunity />
+      <EditCommunity params={{id: 'asdasdasd'}} />
     );
   });
 
-  it('should have a create community title', () => {
+  it('should have an edit community title', () => {
     expect(
-      screen.getByText('Create a new community'),
+      screen.getByText(/Edit community:/i),
     ).toBeDefined()
   })
 
@@ -31,6 +31,11 @@ describe('CreateCommunity', () => {
   })
 
   it('should require a name and description', async () => {
+    const nameInput = screen.getByPlaceholderText('Community name');
+    await userEvent.clear(nameInput);
+    const descriptionInput = screen.getByPlaceholderText('Short description of the community');
+    await userEvent.clear(descriptionInput);
+
     const button = screen.getByText('Save')
     await userEvent.click(button)
 
