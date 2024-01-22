@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Topics',
 }
 
-export default function Topics() {
+export default function Topic({ params }: { params: { id: string }}) {
   const topic = {
     eid: '55c91db89255ccd27ed77c78f86c98b1',
     title: 'Green Sourcing for a Bright Tomorrow', 

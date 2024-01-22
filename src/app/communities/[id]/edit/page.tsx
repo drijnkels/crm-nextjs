@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Manage community',
 }
 
-export default function Community({ params }: { params: { id: string }}) {
+export default function EditCommunity({ params }: { params: { id: string }}) {
   const community = {
     eid: params.id,
     name: 'CollabNet',

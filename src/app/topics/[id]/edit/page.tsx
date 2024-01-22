@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Create a new community',
 }
 
-export default function NewTopic() {
+export default function EditTopic({ params }: { params: { id: string }}) {
   const topic = {
     eid: '55c91db89255ccd27ed77c78f86c98b1',
     title: 'Green Sourcing for a Bright Tomorrow',

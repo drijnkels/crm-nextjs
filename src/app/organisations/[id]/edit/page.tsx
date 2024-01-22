@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Create a new organisation',
 }
 
-export default function EditOrganisation(){
+export default function EditOrganisation({ params }: { params: { id: string }}){
     const organisation: Organisation = {
         eid: 'knrbpkdwne',
         name: 'EcoLogiX Solutions',

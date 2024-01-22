@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Create a new user',
 }
 
-export default function NewTopic() {
+export default function NewTopic({ params }: {params: {id: string}}) {
   const user = {
     eid: 'jdatsxezfh',
     name: 'David Rodriguez',

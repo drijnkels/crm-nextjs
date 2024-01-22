@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: 'Organisations',
 }
 
-export default function Organisation() {
+export default function Organisation({ params }: { params: { id: string }}) {
   const organisation = {
     eid: 'knrbpkdwne',
     name: 'EcoLogiX Solutions',

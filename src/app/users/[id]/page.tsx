@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: 'Users',
 }
 
-export default function Users() {
+export default function User({ params }: { params: { id: string }}) {
   const user = {
     eid: 'jdatsxezfh',
     name: 'David Rodriguez',
